@@ -5,7 +5,7 @@ import gameOver from "./scenes/gameOver";
 
 k.loadSprite("chemical-bg", "graphics/chemical-bg.png");
 k.loadSprite("platforms", "graphics/platforms.png");
-k.loadSprite("sonic", "graphics/sonic.png", {
+k.loadSprite("sonic", "graphics/sonic_purpul.png", {
   sliceX: 8,
   sliceY: 2,
   anims: {
