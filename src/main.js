@@ -2,6 +2,7 @@ import {k} from "./kaplaCTX";
 import mainMenu from "./scenes/mainMenu";
 import game from "./scenes/game";
 import gameOver from "./scenes/gameOver";
+import disclaimer from "./scenes/disclaimer";
 
 k.loadSprite("chemical-bg", "graphics/chemical-bg.png");
 k.loadSprite("platforms", "graphics/platforms.png");
@@ -37,8 +38,9 @@ k.loadSound("ring", "sounds/Ring.wav");
 k.loadSound("city", "sounds/city.mp3");
 
 // Scenes
+k.scene("disclaimer", disclaimer);
 k.scene("main-menu", mainMenu);
 k.scene("game", game); 
-k.scene("gameover", () => gameOver);
-k.go("main-menu");
+k.scene("gameover", gameOver);
+k.go("disclaimer");
 

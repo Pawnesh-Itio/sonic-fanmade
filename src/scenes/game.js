@@ -6,6 +6,7 @@ import gameOver from "./gameOver";
 
 export default function game() {
     k.setGravity(3100);
+    const citySfx = k.play("city", {volume:0.2, loop: true});
     const bgPieceWidth = 1920;
     // Background
     const bgPieces = [
@@ -57,17 +58,23 @@ export default function game() {
             scoreMultiplyer +=1 ;
             score += 10 * scoreMultiplyer;
             scoreText.text = `SCORE : ${score}`;  
-            multiplyerText.text = `${scoreMultiplyer}X`; 
+            multiplyerText.text = `${scoreMultiplyer+1}X`; 
+            if(scoreMultiplyer===1) sonic.ringCollectionUI.text="+10";
+            if(scoreMultiplyer>1)sonic.ringCollectionUI.text=`+${10*scoreMultiplyer}`;
+            k.wait(1, () =>( sonic.ringCollectionUI.text="" ));
             return;
         }
         k.play("hurt",{ volume: 0.5 });
-        k.go("gameover");
+        k.setData("current-score",)
+        k.go("gameover", citySfx);
     });
     sonic.onCollide("ring", (ring)=>{
         k.play("ring", {volume:0.5});
         k.destroy(ring);
         score++;
         scoreText.text = `SCORE : ${score}`;
+        sonic.ringCollectionUI.text =   "+1";
+        k.wait(1, () =>( sonic.ringCollectionUI.text="" ));
   });
 
     let gameSpeed = 300;
@@ -115,7 +122,7 @@ export default function game() {
     ]);
     k.onUpdate( ()=>{
       if(sonic.isGrounded()) scoreMultiplyer=0;
-      multiplyerText.text = `${scoreMultiplyer}X`; 
+      multiplyerText.text = `${scoreMultiplyer+1}X`; 
               // BG Move
       if(bgPieces[1].pos.x<0 ){
         bgPieces[0].moveTo(bgPieces[1].pos.x + bgPieceWidth * 2, 0);
