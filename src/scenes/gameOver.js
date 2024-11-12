@@ -53,7 +53,7 @@ export default function gameOver(citySfx) {
         k.area(),
         k.anchor("center"),
         k.outline(6, k.Color.fromArray([255, 255, 255])),
-        k.pos(k.center().x - 400, k.center().y +50),
+        k.pos(k.center().x + 400, k.center().y +50),
     ]);
     currentRankBox.add([
         k.text(currentRank, { font: "mania", size: 100 }),
