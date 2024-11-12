@@ -4,9 +4,9 @@ import game from "./scenes/game";
 import gameOver from "./scenes/gameOver";
 import disclaimer from "./scenes/disclaimer";
 
-k.loadSprite("chemical-bg", "graphics/chemical-bg.png");
-k.loadSprite("platforms", "graphics/platforms.png");
-k.loadSprite("sonic", "graphics/sonic_purpul.png", {
+k.loadSprite("chemical-bg", "graphics/background1.jpg");
+k.loadSprite("platforms", "graphics/platform2.jpg");
+k.loadSprite("sonic", "graphics/sonic.png", {
   sliceX: 8,
   sliceY: 2,
   anims: {

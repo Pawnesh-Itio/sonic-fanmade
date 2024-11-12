@@ -10,14 +10,14 @@ export default function mainMenu() {
     const bgPieces = [
       k.add([
         k.sprite("chemical-bg"), 
-        k.pos(0, 0), 
+        k.pos(0, -900), 
         k.scale(2), 
         k.opacity(0.8),
         k.area()
       ]),
       k.add([
         k.sprite("chemical-bg"),
-        k.pos(bgPieceWidth*2, 0),
+        k.pos(bgPieceWidth*2, -900),
         k.scale(2),
         k.opacity(0.8),
         k.area()
@@ -26,8 +26,8 @@ export default function mainMenu() {
     // Platform for run...
     const platformsWidth = 1280;
     const platforms = [
-      k.add([k.sprite("platforms"),k.pos(0,450),k.scale(4)]),
-      k.add([k.sprite("platforms"),k.pos(platformsWidth *4,450),k.scale(4)]),
+      k.add([k.sprite("platforms"),k.pos(0,800),k.scale(4)]),
+      k.add([k.sprite("platforms"),k.pos(platformsWidth *4,800),k.scale(4)]),
     ];
 
     k.add([
@@ -52,17 +52,17 @@ export default function mainMenu() {
     k.onUpdate( () =>{
       // BG Move
       if(bgPieces[1].pos.x<0 ){
-        bgPieces[0].moveTo(bgPieces[1].pos.x + bgPieceWidth * 2, 0);
+        bgPieces[0].moveTo(bgPieces[1].pos.x + bgPieceWidth * 2, -1130);
         bgPieces.push(bgPieces.shift());
       }
       bgPieces[0].move(-100,0);
-      bgPieces[1].moveTo(bgPieces[0].pos.x + bgPieceWidth * 2, 0);
+      bgPieces[1].moveTo(bgPieces[0].pos.x + bgPieceWidth * 2, -1130);
       // Platform move
       if(platforms[1].pos.x<0 ){
-        platforms[0].moveTo(bgPieces[1].pos.x + platforms[1].width * 4, 450);
+        platforms[0].moveTo(bgPieces[1].pos.x + platforms[1].width * 4, 800);
         platforms.push(platforms.shift());
       }
       platforms[0].move(-4000,0);
-      platforms[1].moveTo(platforms[0].pos.x + platforms[1].width * 4, 450);
+      platforms[1].moveTo(platforms[0].pos.x + platforms[1].width * 4, 800);
     });
 }

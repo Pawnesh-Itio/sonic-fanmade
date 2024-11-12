@@ -12,14 +12,14 @@ export default function game() {
     const bgPieces = [
       k.add([
         k.sprite("chemical-bg"), 
-        k.pos(0, 0), 
+        k.pos(0, -900), 
         k.scale(2), 
         k.opacity(0.8),
         k.area()
       ]),
       k.add([
         k.sprite("chemical-bg"),
-        k.pos(bgPieceWidth*2, 0),
+        k.pos(bgPieceWidth*2, -900),
         k.scale(2),
         k.opacity(0.8),
         k.area()
@@ -28,8 +28,8 @@ export default function game() {
     // Platform for run...
     const platformsWidth = 1280;
     const platforms = [
-      k.add([k.sprite("platforms"),k.pos(0,450),k.scale(4)]),
-      k.add([k.sprite("platforms"),k.pos(platformsWidth,450),k.scale(4)]),
+      k.add([k.sprite("platforms"),k.pos(0,800),k.scale(4)]),
+      k.add([k.sprite("platforms"),k.pos(platformsWidth,800),k.scale(4)]),
     ];
 
     // Score Variable initializing
@@ -125,18 +125,18 @@ export default function game() {
       multiplyerText.text = `${scoreMultiplyer+1}X`; 
               // BG Move
       if(bgPieces[1].pos.x<0 ){
-        bgPieces[0].moveTo(bgPieces[1].pos.x + bgPieceWidth * 2, 0);
+        bgPieces[0].moveTo(bgPieces[1].pos.x + bgPieceWidth * 2, -900);
         bgPieces.push(bgPieces.shift());
       }
       bgPieces[0].move(-100,0);
-      bgPieces[1].moveTo(bgPieces[0].pos.x + bgPieceWidth * 2, 0);
+      bgPieces[1].moveTo(bgPieces[0].pos.x + bgPieceWidth * 2, -900);
     //   Platform
       if(platforms[1].pos.x<0 ){
-        platforms[0].moveTo(bgPieces[1].pos.x + platformsWidth * 4, 450);
+        platforms[0].moveTo(bgPieces[1].pos.x + platformsWidth * 4, 800);
         platforms.push(platforms.shift());
       }
       platforms[0].move(-gameSpeed,0);
-      platforms[1].moveTo(platforms[0].pos.x + platformsWidth * 4, 450);
+      platforms[1].moveTo(platforms[0].pos.x + platformsWidth * 4, 800);
     });
 
 }
