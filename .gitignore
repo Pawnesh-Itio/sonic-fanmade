@@ -1,5 +1,8 @@
 # Ignore node_modules
 node_modules/
 
+# Ingore Dist Build File
+dist/
+
 # Ignore composer.lock
 package-lock.json
