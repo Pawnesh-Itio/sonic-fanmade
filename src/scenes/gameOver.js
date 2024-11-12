@@ -40,7 +40,7 @@ export default function gameOver(citySfx) {
         k.color(0, 0, 0),
         k.area(),
         k.anchor("center"),
-        k.outline(6, k.color.fromArray([255, 255, 255])),
+        k.outline(6, k.Color.fromArray([255, 255, 255])),
         k.pos(k.center().x - 400, k.center().y +50),
     ]);
     bestRankBox.add([
@@ -52,7 +52,7 @@ export default function gameOver(citySfx) {
         k.color(0, 0, 0),
         k.area(),
         k.anchor("center"),
-        k.outline(6, k.color.fromArray([255, 255, 255])),
+        k.outline(6, k.Color.fromArray([255, 255, 255])),
         k.pos(k.center().x - 400, k.center().y +50),
     ]);
     currentRankBox.add([
