@@ -16,6 +16,7 @@ export default function gameOver(citySfx) {
             bestRank = rankGrade[i];
         }
         if(bestScore < currentScore){
+            k.setData("best-score", currentScore);
             bestScore = currentScore;
             bestRank = currentRank;
         }
