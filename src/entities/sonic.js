@@ -9,12 +9,10 @@ export function makeSonic(pos){
         k.body({ jumpForce:1700 }),
         {
             ringCollectionUI:null,
-            isJumping: false, // Tracks if Sonic is in the air
             canJump: true, // Tracks if the jump button has been released
             setControls() {
                 k.onButtonDown("jump", () => {
                     if(this.isGrounded() && this.canJump){
-                        this.isJumping = true;
                         this.canJump = false; // Prevents continuous jump until button is released
                         this.play("jump");
                         this.jump();
@@ -29,7 +27,6 @@ export function makeSonic(pos){
             },
             setEvents(){
                 this.onGround( ()=> {
-                    this.isJumping = false; // Reset the flag when Sonic lands
                     this.play("run");
                 });
             }
